@@ -31,7 +31,8 @@ group :development do
     gem 'sqlite3'
 end
 gem 'jquery-rails'
-
+gem 'pry'
+gem 'haml-rails'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

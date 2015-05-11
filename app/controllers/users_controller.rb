@@ -15,7 +15,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @activities = PublicActivity::Activity.where(owner_id: @user.id, owner_type: "User")
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
