@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
+//= require bootstrap.min
+//= require private_pub
 //= require_tree .
 
-$(document).foundation();
+// $(document).foundation();

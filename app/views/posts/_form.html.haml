@@ -7,8 +7,10 @@
       %ul
         - @post.errors.full_messages.each do |msg|
           %li= msg
-  .field
-    = f.text_area :content
-  = f.file_field :avatar
-  .actions.right
-    = f.submit class: 'tiny button radius'
+  .row
+    = f.text_area :content, class: "form-control custom-control", rows: "3"
+  .row
+    .col-md-8
+      = f.file_field :avatar, class: "form-control"
+    .col-md-3.right
+      = f.submit class: 'btn btn-success'

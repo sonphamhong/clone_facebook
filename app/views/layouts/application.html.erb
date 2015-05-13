@@ -16,6 +16,7 @@
 					<title><%= content_for?(:title) ? yield(:title) : "FaceLab" %></title>
 
 					<%= stylesheet_link_tag    "application" %>
+					<%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
 					<%= javascript_include_tag "vendor/custom.modernizr" %>
 					<%= csrf_meta_tags %>
 				</head>

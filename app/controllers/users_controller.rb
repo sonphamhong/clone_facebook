@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
-
+    @conversations = Conversation.involving(current_user).order("created_at DESC")
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }

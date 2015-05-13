@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130507184210) do
+ActiveRecord::Schema.define(:version => 20150513022554) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(:version => 20130507184210) do
 
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "conversations", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "conversations", ["recipient_id"], :name => "index_conversations_on_recipient_id"
+  add_index "conversations", ["sender_id"], :name => "index_conversations_on_sender_id"
 
   create_table "follows", :force => true do |t|
     t.string   "follower_type"
@@ -73,6 +83,14 @@ ActiveRecord::Schema.define(:version => 20130507184210) do
 
   add_index "mentions", ["mentionable_id", "mentionable_type"], :name => "fk_mentionables"
   add_index "mentions", ["mentioner_id", "mentioner_type"], :name => "fk_mentions"
+
+  create_table "messages", :force => true do |t|
+    t.text     "body"
+    t.integer  "conversation_id"
+    t.integer  "user_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "posts", :force => true do |t|
     t.integer  "user_id"

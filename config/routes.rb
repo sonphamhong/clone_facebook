@@ -11,7 +11,9 @@ Facebook::Application.routes.draw do
     resources :users
     resources :posts
     resources :comments
-
+    resources :conversations do
+        resources :messages
+    end
     # The priority is based upon order of creation:
     # first created -> highest priority.
 
