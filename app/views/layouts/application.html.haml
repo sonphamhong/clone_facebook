@@ -17,6 +17,7 @@
         %p.alert-box.error= alert
       .large-8.columns
         = yield
-      .large-3.columns
-        = render "layouts/sidebar_right"
+      - if user_signed_in?  
+        .large-3.columns
+          = render "layouts/sidebar_right"
     = javascript_include_tag "application"
