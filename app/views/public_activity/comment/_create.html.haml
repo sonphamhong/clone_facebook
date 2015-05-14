@@ -2,6 +2,8 @@
   .user-box.activity_feed
     = image_tag activity.owner.avatar.url(:thumb), class: 'like_profile'
     = link_to activity.owner.name, activity.owner
-    commented on #{link_to "Post", activity.trackable.post}
+    = "commented on " 
+    = link_to "Post", activity.trackable.post
+    = distance_of_time_in_words(activity.updated_at, Time.now.utc)+" ago"
   .like_post
     = render 'comments/comment', comment: activity.trackable

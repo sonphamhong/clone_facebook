@@ -111,7 +111,7 @@ var ready = function () {
             }
 
             if (chatBoxeslength == 0) {
-                $("#chatbox_" + conversation_id).css('right', '370px');
+                $("#chatbox_" + conversation_id).css('right', '20px');
             } else {
                 width = (chatBoxeslength) * (280 + 7) + 20;
                 $("#chatbox_" + conversation_id).css('right', width + 'px');
@@ -244,9 +244,6 @@ var ready = function () {
             }
 
         }
-
-
-
     }
 
 
@@ -301,8 +298,6 @@ var ready = function () {
             return cookieValue;
         }
     };
-
-
 }
 
 $(document).ready(ready);

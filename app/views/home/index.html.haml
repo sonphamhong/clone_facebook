@@ -1,0 +1,5 @@
+.large-8.columns
+  = render 'posts/form'
+  - @activities.each do |activity|
+    = render_activity(activity)
+

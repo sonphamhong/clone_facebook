@@ -1,7 +1,7 @@
 .user-box.row
   = image_tag post.user.avatar.url(:thumb), class: 'profile_post'
   = link_to post.user.name, post.user
-  = distance_of_time_in_words(post.updated_at, Time.now.utc)
+  = "post "+distance_of_time_in_words(post.updated_at, Time.now.utc)+" ago"
 .row  
   %p
     = post.content

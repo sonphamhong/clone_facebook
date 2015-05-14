@@ -5,7 +5,7 @@
 </div>
 <%= image_tag @user.avatar.url(:thumb), class: 'profile' %>
 <span class="left">
-<h4><%= @user.name %></h4>
+  <h4><%= @user.name %></h4>
 </span>
 <div class="row feed ">
   <%= render_activities(@activities) %>

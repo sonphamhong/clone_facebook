@@ -22,27 +22,30 @@ class UsersController < ApplicationController
 
   def follow
   	@user = User.find(params[:user])
-	current_user.follow!(@user)
+	  current_user.follow!(@user)
   end
+
   def unfollow
   	@user = User.find(params[:user])
-	current_user.unfollow!(@user)
+	  current_user.unfollow!(@user)
   end
+
   def like
-      if params[:likeable_type] == "Post"
-          @likeable = Post.find(params[:likeable_id])
-      else
-          @likeable = Comment.find(params[:likeable_id])
-      end
-	current_user.like!(@likeable)
+    if params[:likeable_type] == "Post"
+        @likeable = Post.find(params[:likeable_id])
+    else
+        @likeable = Comment.find(params[:likeable_id])
+    end
+	  current_user.like!(@likeable)
   end
+
   def unlike
-      binding.pry
-      if params[:likeable_type] == "Post"
-          @likeable = Post.find(params[:likeable_id])
-      else
-          @likeable = Comment.find(params[:likeable_id])
-      end
-	current_user.unlike!(@likeable)
+    binding.pry
+    if params[:likeable_type] == "Post"
+        @likeable = Post.find(params[:likeable_id])
+    else
+        @likeable = Comment.find(params[:likeable_id])
+    end
+	  current_user.unlike!(@likeable)
   end
 end
