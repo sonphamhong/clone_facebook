@@ -3,10 +3,11 @@
   = link_to post.user.name, post.user
   = "post "+distance_of_time_in_words(post.updated_at, Time.now.utc)+" ago"
 .row  
-  %p
+  %p{:style => "margin-left:2rem;"}
     = post.content
 %center
-  = image_tag post.avatar.url if post.avatar.exists?
+  #image{:style => "width:300px;"}
+    = image_tag post.avatar.url  if post.avatar.exists?
 %div{:class => "#{post.class}-#{post.id}"}
   = render 'shared/like_form', likeable: post
   = link_to pluralize(post.comments.count, 'comment'), post, class: 'comments'
