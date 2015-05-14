@@ -1,0 +1,16 @@
+%div{:style => "height: 300px; overflow-y: auto;position: fixed;"}
+  .panel.panel-default
+    .panel-heading Registered Users
+    %table.table
+      %thead
+        %tr
+          %th #
+          %th Name
+          %th
+      %tbody
+        - @users.each_with_index do |user, index|
+          %tr
+            %td= index +=1
+            %td= user.name
+            %td
+              = link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation","data-sid" => current_user.id, "data-rip" => user.id

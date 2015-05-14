@@ -1,37 +1,16 @@
-= render @users 
-.row
-  .col-md-6
-    %div{:style => "height: 300px; overflow-y: auto;"}
-      .panel.panel-default
-        / Default panel contents
-        .panel-heading Registered Users
-        / Table
-        %table.table
-          %thead
-            %tr
-              %th #
-              %th Name
-              %th
-          %tbody
-            - @users.each_with_index do |user, index|
-              %tr
-                %td= index +=1
-                %td= user.name
-                %td
-                  = link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation", |
-                    "data-sid" => current_user.id, "data-rip" => user.id                             |
-    %hr
-      %h3 Your Conversations
-      %div{:style => "height: 400px; overflow-y: auto;"}
-        - if @conversations.any?
-          %ul.media-list
-            - @conversations.each do |conversation|
-              %li.media
-                = image_tag(conversation_interlocutor(conversation).avatar.url(:thumb), class: "media-object pull-left profile")
-                .media-body
-                  = link_to "", conversation_path(conversation), class: "conversation", "data-cid" => conversation.id
-                  %h4.media-heading= conversation_interlocutor(conversation).name
-                  %p= conversation.messages.last.nil? ? "No messages" : truncate(conversation.messages.last.body, length: 45)
-        - else
-          %p You have no conversations. Click send message with any user to create one.
-  .col-md-4
+= render @users               
+%hr
+  %h3 Your Conversations
+  %div{:style => "height: 400px; overflow-y: auto;"}
+    - if @conversations.any?
+      %ul.media-list
+        - @conversations.each do |conversation|
+          %li.media
+            = image_tag(conversation_interlocutor(conversation).avatar.url(:thumb), class: "media-object pull-left profile")
+            .media-body
+              = link_to "", conversation_path(conversation), class: "conversation", "data-cid" => conversation.id
+              %h4.media-heading= conversation_interlocutor(conversation).name
+              %p= conversation.messages.last.nil? ? "No messages" : truncate(conversation.messages.last.body, length: 45)
+    - else
+      %p You have no conversations. Click send message with any user to create one.
+.col-md-4

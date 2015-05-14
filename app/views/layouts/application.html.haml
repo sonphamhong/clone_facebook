@@ -1,0 +1,22 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+    %title= content_for?(:title) ? yield(:title) : "FaceLab"
+    = stylesheet_link_tag    "application"
+    = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'
+    = javascript_include_tag "vendor/custom.modernizr"
+    = csrf_meta_tags
+  %body
+    = render 'layouts/header'
+    .row
+      - if notice
+        %p.alert-box.success= notice
+      - if alert
+        %p.alert-box.error= alert
+      .large-8.columns
+        = yield
+      .large-3.columns
+        = render "layouts/sidebar_right"
+    = javascript_include_tag "application"
