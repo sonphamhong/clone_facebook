@@ -8,7 +8,7 @@ gem 'rails', '3.2.13'
 gem 'devise'
 gem "socialization"
 gem "paperclip", "~> 3.0"
-gem 'public_activity'
+gem 'public_activity', "~> 1.4.0"
 
 
 # Gems used only for assets and not required
@@ -36,6 +36,7 @@ gem 'haml-rails'
 gem 'strong_parameters'
 gem 'private_pub'
 gem 'jbuilder'
+gem 'thin'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

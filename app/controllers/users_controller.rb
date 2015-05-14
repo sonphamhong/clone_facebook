@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    @activities = PublicActivity::Activity.where(owner_id: @user.id, owner_type: "User")
+    @activities = PublicActivity::Activity.where(owner_id: @user.id, owner_type: "User").order("created_at desc")
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
@@ -38,6 +38,7 @@ class UsersController < ApplicationController
 	current_user.like!(@likeable)
   end
   def unlike
+      binding.pry
       if params[:likeable_type] == "Post"
           @likeable = Post.find(params[:likeable_id])
       else
