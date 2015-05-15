@@ -1,0 +1,8 @@
+- if activity.trackable
+  .activity_feed
+    .user-box
+      = image_tag activity.owner.avatar.url(:thumb), class: 'like_profile'
+      = link_to activity.owner.name, activity.owner
+      = "follow "
+      = link_to activity.trackable.followable.name, activity.trackable.followable
+      = distance_of_time_in_words(activity.updated_at, Time.now.utc)+" ago"

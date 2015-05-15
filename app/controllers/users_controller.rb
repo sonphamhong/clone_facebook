@@ -40,7 +40,6 @@ class UsersController < ApplicationController
   end
 
   def unlike
-    binding.pry
     if params[:likeable_type] == "Post"
         @likeable = Post.find(params[:likeable_id])
     else
