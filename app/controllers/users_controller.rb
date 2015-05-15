@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  # GET /users
-  # GET /users.json
+
   def index
     @conversations = Conversation.involving(current_user).order("created_at DESC")
     respond_to do |format|
@@ -9,13 +8,11 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/1
-  # GET /users/1.json
   def show
     @user = User.find(params[:id])
     @activities = PublicActivity::Activity.where(owner_id: @user.id, owner_type: "User").order("created_at desc")
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.json { render json: @user }
     end
   end

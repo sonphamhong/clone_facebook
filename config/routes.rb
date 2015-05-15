@@ -14,6 +14,8 @@ Facebook::Application.routes.draw do
     resources :conversations do
         resources :messages
     end
+    get "groups/:id" => "groups#show" , :as => "groups"
+    post "groups/:group_id/messages" => "groups#create_message" , :as => "group_message"
     # The priority is based upon order of creation:
     # first created -> highest priority.
 

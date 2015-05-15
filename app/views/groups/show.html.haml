@@ -1,0 +1,9 @@
+.row
+  - @messages.each do |message|
+    .row
+      .small-2.columns
+        = message.user.name
+        = ":"
+      .small-10.columns
+        = message.body
+= render "shared/form_group"
